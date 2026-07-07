@@ -1,102 +1,48 @@
-# Contributing to Stellar Milestone Escrow
+# Contributing to LuminaHealth
 
-First off, thank you for taking the time to contribute! 🎉 We welcome contributions from everyone to help make this contract more robust, secure, and useful for the Stellar ecosystem.
-
-This document provides a set of guidelines and instructions to help you get started with contributing.
+Thank you for your interest in contributing to LuminaHealth! This clinical operations and billing platform is built as a strict monorepo. Please read this guide to understand how to get started and how to maintain the codebase standards.
 
 ---
 
-## 🗺 Table of Contents
-1. [Code of Conduct](#code-of-conduct)
-2. [How Can I Contribute?](#how-can-i-contribute)
-3. [Development Environment Setup](#development-environment-setup)
-4. [Coding Standards & Guidelines](#coding-standards--guidelines)
-5. [Testing & Verification](#testing--verification)
-6. [Submitting a Pull Request](#submitting-a-pull-request)
+## 🛠 Prerequisites
+
+*   **Node.js:** v20 or newer
+*   **npm:** v10 or newer
 
 ---
 
-## 🤝 Code of Conduct
-We expect all contributors to adhere to a respectful, welcoming, and harassment-free community environment. Please be constructive and polite in all issues, pull requests, and discussions.
+## 🚀 Setting Up the Development Workspace
 
----
-
-## 💡 How Can I Contribute?
-
-*   **Reporting Bugs:** Open an issue describing the bug, including steps to reproduce, expected behavior, and host/environment details.
-*   **Suggesting Enhancements:** Open an issue describing the feature, why it is useful, and potential implementation paths.
-*   **Submitting Pull Requests:** Fix open issues or implement features. Please link your PR to the corresponding issue.
-
----
-
-## 🛠 Development Environment Setup
-
-To compile and run tests for this Soroban smart contract, you will need the following tools:
-
-1.  **Rust Toolchain:** Install Rust (v1.79.0+) via [rustup](https://rustup.rs/):
+1.  **Clone the repository:**
     ```bash
-    rustup update stable
+    git clone https://github.com/becckyrebecca/stellar-milestone-escrow.git LuminaHealth
+    cd LuminaHealth
     ```
-2.  **WebAssembly Target:** Add the `wasm32-unknown-unknown` target:
+2.  **Install dependencies:**
     ```bash
-    rustup target add wasm32-unknown-unknown
+    npm install
     ```
-3.  **Soroban/Stellar CLI:** (Optional, for deploying and CLI interactions):
+3.  **Compile shared packages and apps:**
     ```bash
-    cargo install --locked stellar-cli --features opt
+    npm run build
     ```
 
 ---
 
-## 📏 Coding Standards & Guidelines
+## 🚦 Architecture & Boundary Rules
 
-To ensure the smart contract remains solid and review processes are smooth, please follow these rules:
-
-*   **Documentation:** Maintain clear comments and documentation. Keep `README.md` updated if you change function signatures or behavior.
-*   **Crate Naming:** Keep crate names aligned with workspace configuration (`stellar-milestone-escrow`).
-*   **Formatting:** All Rust files must be formatted with the standard settings. Format before committing:
+To keep our patient data safe and clinical operations decoupled from financial ledger layers:
+1.  **Shared config and types only:** Use `@lumina/config` and `@lumina/types` to share values across client-side and server-side applications.
+2.  **No direct backend dependencies:** UI projects (`apps/web` or `apps/mobile`) must **never** import source files from backend services (`apps/api` or `apps/stellar-service`).
+3.  **Pre-commit Verification:** Before submitting a Pull Request, you must run the validation checks and ensure they pass successfully:
     ```bash
-    cargo fmt --all
-    ```
-*   **Lints & Quality:** All code must compile with clippy with **zero warnings**. Run clippy with strict warning flags:
-    ```bash
-    cargo clippy --all-targets --all-features -- -D warnings
-    ```
-*   **Security Principles:** 
-    *   Verify all caller permissions via `Address::require_auth()`.
-    *   Explicitly handle errors using the contract's custom `ContractError` enum.
-    *   Sanitize all numbers to prevent overflow/underflow or negative amounts.
-
----
-
-## 🧪 Testing & Verification
-
-Every functional change or bug fix **must** be accompanied by unit tests in `src/test.rs`.
-
-*   **Run local unit tests:**
-    ```bash
-    cargo test --all
-    ```
-*   **Compile to WebAssembly:** Ensure that the contract compiles cleanly to guest WASM target before submitting:
-    ```bash
-    cargo build --release --target wasm32-unknown-unknown --all
+    npm run check:architecture
+    npm run check:boundaries
     ```
 
 ---
 
-## 🚀 Submitting a Pull Request
+## 📝 Committing Code
 
-1.  **Fork the Repository:** Create a fork of the repository and clone it locally.
-2.  **Create a Branch:** Create a branch for your changes:
-    ```bash
-    git checkout -b feature/my-cool-feature
-    ```
-3.  **Make Changes:** Implement your feature or bug fix.
-4.  **Verify & Format:** Run formatting checks, clippy, and unit tests to ensure everything is passing.
-5.  **Commit Changes:** Commit using clear, descriptive commit messages:
-    ```bash
-    git commit -m "feat: add auto-dispute expiry mechanism"
-    ```
-6.  **Push and Open PR:** Push to your fork and submit a Pull Request to the `main` branch. Provide a detailed summary of your changes and reference any related issues.
-
-Thank you for contributing to the Stellar open-source community!
+*   Always use descriptive branch names (`feature/onboard-patient`, `bugfix/stellar-tx-timeout`).
+*   Ensure that compilation (`npm run build`) is successful and does not generate type errors or warnings.

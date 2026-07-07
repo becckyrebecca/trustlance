@@ -1,0 +1,23 @@
+{
+  "name": "luminahealth",
+  "version": "1.0.0",
+  "description": "LuminaHealth clinical operations platform",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build:packages": "npm run build --workspace=@lumina/config && npm run build --workspace=@lumina/types",
+    "build:apps": "npm run build --workspace=@lumina/api && npm run build --workspace=@lumina/stellar-service && npm run build --workspace=@lumina/mobile && npm run build --workspace=@lumina/web",
+    "build": "npm run build:packages && npm run build:apps",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "check:architecture": "node scripts/check-architecture.js",
+    "check:boundaries": "node scripts/check-boundaries.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
