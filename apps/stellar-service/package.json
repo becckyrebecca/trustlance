@@ -1,5 +1,5 @@
 {
-  "name": "@lumina/stellar-service",
+  "name": "@novahealth/stellar-service",
   "version": "1.0.0",
   "private": true,
   "main": "dist/index.js",
@@ -11,8 +11,8 @@
   "dependencies": {
     "@stellar/stellar-sdk": "^12.3.0",
     "express": "^4.19.2",
-    "@lumina/config": "*",
-    "@lumina/types": "*"
+    "@novahealth/config": "*",
+    "@novahealth/types": "*"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",

@@ -1,5 +1,5 @@
 {
-  "name": "@lumina/mobile",
+  "name": "@novahealth/mobile",
   "version": "1.0.0",
   "private": true,
   "main": "dist/App.js",
@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "@lumina/config": "*",
-    "@lumina/types": "*"
+    "@novahealth/config": "*",
+    "@novahealth/types": "*"
   },
   "devDependencies": {
     "@types/react": "^18.2.79",

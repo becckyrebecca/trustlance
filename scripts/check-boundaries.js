@@ -41,7 +41,7 @@ appSrcDirs.forEach(srcDir => {
     if (relativeViolations.test(content) || directViolations.test(content)) {
       console.error(`[BoundaryCheck] ERROR: Boundary violation detected in: ${path.relative(path.join(__dirname, ".."), file)}`);
       console.error("  -> UI packages should not import directly from API or Stellar backend services.");
-      console.error("  -> Use shared types (@lumina/types) and shared configs (@lumina/config) instead.");
+      console.error("  -> Use shared types (@novahealth/types) and shared configs (@novahealth/config) instead.");
       failed = true;
     }
   });

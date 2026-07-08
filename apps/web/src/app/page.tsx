@@ -1,11 +1,11 @@
 import React from "react";
-import { RUNTIME_CONFIG } from "@lumina/config";
+import { RUNTIME_CONFIG } from "@novahealth/config";
 
 export default function Page() {
   return (
     <div style={{ fontFamily: "sans-serif", padding: "40px", backgroundColor: "#f8f9fa", minHeight: "100vh" }}>
       <header style={{ borderBottom: "1px solid #dee2e6", paddingBottom: "20px", marginBottom: "30px" }}>
-        <h1 style={{ color: "#0d6efd", margin: "0" }}>LuminaHealth</h1>
+        <h1 style={{ color: "#0d6efd", margin: "0" }}>NovaHealth</h1>
         <p style={{ color: "#6c757d", margin: "5px 0 0 0" }}>Clinical Operations & Billing Workspace</p>
       </header>
 

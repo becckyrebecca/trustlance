@@ -1,5 +1,5 @@
 {
-  "name": "@lumina/api",
+  "name": "@novahealth/api",
   "version": "1.0.0",
   "private": true,
   "main": "dist/index.js",
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "express": "^4.19.2",
-    "@lumina/config": "*",
-    "@lumina/types": "*"
+    "@novahealth/config": "*",
+    "@novahealth/types": "*"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",

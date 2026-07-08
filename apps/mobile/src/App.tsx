@@ -1,6 +1,8 @@
 import React from "react";
-import { RUNTIME_CONFIG } from "@lumina/config";
-import { Patient } from "@lumina/types";
+import { RUNTIME_CONFIG } from "@novahealth/config";
+import { Patient } from "@novahealth/types";
+
+
 
 export function MobileApp() {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -17,7 +19,7 @@ export function MobileApp() {
 
   return {
     render: () => `
-      Mobile Frontline Workspace: LuminaHealth
+      Mobile Frontline Workspace: NovaHealth
       Active Clinic Server: ${RUNTIME_CONFIG.apiEndpoints.production}
       Patient Lookup Query: ${searchQuery}
       Offline Sync Status: ${offlineSyncPending ? "Pending Connection" : "Synchronized"}

@@ -1,7 +1,7 @@
 {
-  "name": "luminahealth",
+  "name": "novahealth",
   "version": "1.0.0",
-  "description": "LuminaHealth clinical operations platform",
+  "description": "NovaHealth clinical operations platform",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "dev": "npm run dev --workspaces --if-present",
-    "build:packages": "npm run build --workspace=@lumina/config && npm run build --workspace=@lumina/types",
-    "build:apps": "npm run build --workspace=@lumina/api && npm run build --workspace=@lumina/stellar-service && npm run build --workspace=@lumina/mobile && npm run build --workspace=@lumina/web",
+    "build:packages": "npm run build --workspace=@novahealth/config && npm run build --workspace=@novahealth/types",
+    "build:apps": "npm run build --workspace=@novahealth/api && npm run build --workspace=@novahealth/stellar-service && npm run build --workspace=@novahealth/mobile && npm run build --workspace=@novahealth/web",
     "build": "npm run build:packages && npm run build:apps",
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",

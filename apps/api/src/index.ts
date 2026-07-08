@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from "express";
-import { RUNTIME_CONFIG } from "@lumina/config";
-import { User, Clinic, Patient, Encounter } from "@lumina/types";
+import { RUNTIME_CONFIG } from "@novahealth/config";
+import { User, Clinic, Patient, Encounter } from "@novahealth/types";
 
 const app = express();
 const port = 3001;
@@ -43,7 +43,7 @@ const encounters: Encounter[] = [
 
 // Simple logging middleware
 app.use((req: Request, res: Response, next: NextFunction) => {
-  console.log(`[LuminaAPI] ${req.method} ${req.url}`);
+  console.log(`[NovaAPI] ${req.method} ${req.url}`);
   next();
 });
 
@@ -163,6 +163,6 @@ app.post("/api/encounters", authMock, requireRole(["clinician"]), (req: Request,
 });
 
 app.listen(port, () => {
-  console.log(`[LuminaAPI] Running on port ${port}`);
-  console.log(`[LuminaAPI] Configured with Base Consultation Fee: $${RUNTIME_CONFIG.billing.baseConsultationFeeUSD}`);
+  console.log(`[NovaAPI] Running on port ${port}`);
+  console.log(`[NovaAPI] Configured with Base Consultation Fee: $${RUNTIME_CONFIG.billing.baseConsultationFeeUSD}`);
 });

@@ -1,6 +1,6 @@
-# LuminaHealth Reset Roadmap
+# NovaHealth Reset Roadmap
 
-This document maps out the post-foundational development roadmap to transition LuminaHealth from the initial monorepo workspace scaffolding into a hardened, production-grade clinical platform.
+This document maps out the post-foundational development roadmap to transition NovaHealth from the initial monorepo workspace scaffolding into a hardened, production-grade clinical platform.
 
 ---
 

@@ -1,6 +1,6 @@
-# Contributing to LuminaHealth
+# Contributing to NovaHealth
 
-Thank you for your interest in contributing to LuminaHealth! This clinical operations and billing platform is built as a strict monorepo. Please read this guide to understand how to get started and how to maintain the codebase standards.
+Thank you for your interest in contributing to NovaHealth! This clinical operations and billing platform is built as a strict monorepo. Please read this guide to understand how to get started and how to maintain the codebase standards.
 
 ---
 
@@ -15,8 +15,8 @@ Thank you for your interest in contributing to LuminaHealth! This clinical opera
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/becckyrebecca/stellar-milestone-escrow.git LuminaHealth
-    cd LuminaHealth
+    git clone https://github.com/becckyrebecca/stellar-milestone-escrow.git NovaHealth
+    cd NovaHealth
     ```
 2.  **Install dependencies:**
     ```bash
@@ -32,7 +32,7 @@ Thank you for your interest in contributing to LuminaHealth! This clinical opera
 ## 🚦 Architecture & Boundary Rules
 
 To keep our patient data safe and clinical operations decoupled from financial ledger layers:
-1.  **Shared config and types only:** Use `@lumina/config` and `@lumina/types` to share values across client-side and server-side applications.
+1.  **Shared config and types only:** Use `@novahealth/config` and `@novahealth/types` to share values across client-side and server-side applications.
 2.  **No direct backend dependencies:** UI projects (`apps/web` or `apps/mobile`) must **never** import source files from backend services (`apps/api` or `apps/stellar-service`).
 3.  **Pre-commit Verification:** Before submitting a Pull Request, you must run the validation checks and ensure they pass successfully:
     ```bash

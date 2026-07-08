@@ -1,10 +1,10 @@
-# LuminaHealth System Architecture
+# NovaHealth System Architecture
 
-LuminaHealth is designed as a modular, structured monorepo using npm workspaces to maintain clean separations of concerns between different services, applications, and shared domain libraries.
+NovaHealth is designed as a modular, structured monorepo using npm workspaces to maintain clean separations of concerns between different services, applications, and shared domain libraries.
 
 ## 🏗 Directory Structure
 ```
-luminahealth/
+novahealth/
 │
 ├── apps/
 │   ├── api/                # Core backend API (Express + TypeScript)
@@ -37,7 +37,7 @@ Web (Next.js) and Mobile (React Native) are strictly client-side presentation la
 ---
 
 ## 🚦 Architectural Enforcement
-LuminaHealth enforces boundary separations via local validation tools:
+NovaHealth enforces boundary separations via local validation tools:
 *   **Architecture Check:** `npm run check:architecture` validates that the required project modules and configurations exist.
 *   **Boundary Check:** `npm run check:boundaries` parses files in client workspaces to ensure there are no illegal direct imports from `apps/api` or `apps/stellar-service`.
 
@@ -45,5 +45,5 @@ LuminaHealth enforces boundary separations via local validation tools:
 
 ## 🔗 Shared Packages
 To avoid code duplication and import issues:
-*   `@lumina/config` exports a global config object `RUNTIME_CONFIG` for session rules, consultation fees, and roles.
-*   `@lumina/types` exports type interfaces for `User`, `Clinic`, `Patient`, `Encounter`, and `BillingRecord`.
+*   `@novahealth/config` exports a global config object `RUNTIME_CONFIG` for session rules, consultation fees, and roles.
+*   `@novahealth/types` exports type interfaces for `User`, `Clinic`, `Patient`, `Encounter`, and `BillingRecord`.

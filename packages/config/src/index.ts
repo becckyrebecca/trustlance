@@ -13,6 +13,6 @@ export const RUNTIME_CONFIG = {
   },
   apiEndpoints: {
     local: "http://localhost:3001",
-    production: "https://api.luminahealth.org"
+    production: "https://api.novahealth.org"
   }
 };

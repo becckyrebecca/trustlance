@@ -1,7 +1,7 @@
 import React from "react";
 
 export const metadata = {
-  title: "LuminaHealth Admin Portal",
+  title: "NovaHealth Admin Portal",
   description: "Unified Clinical Operations Platform",
 };
 

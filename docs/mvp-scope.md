@@ -1,4 +1,4 @@
-# LuminaHealth MVP Scope
+# NovaHealth MVP Scope
 
 The platform development is broken down into structured, clinical-centric milestones to ensure progressive hardening, auditability, and safety before full-scale deployment.
 
@@ -8,7 +8,7 @@ The platform development is broken down into structured, clinical-centric milest
 
 ### Milestone 1: Authentication & Access Control
 *   Implement role-based access controls (`admin`, `clinician`, `support`).
-*   Establish secure verification tokens and session boundaries based on `@lumina/config` rules.
+*   Establish secure verification tokens and session boundaries based on `@novahealth/config` rules.
 
 ### Milestone 2: Clinic & Staff Management
 *   Enable onboarding of multi-facility environments.

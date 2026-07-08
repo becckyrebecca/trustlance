@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
-import { RUNTIME_CONFIG } from "@lumina/config";
-import { BillingRecord } from "@lumina/types";
+import { RUNTIME_CONFIG } from "@novahealth/config";
+import { BillingRecord } from "@novahealth/types";
 import * as StellarSdk from "@stellar/stellar-sdk";
 
 const app = express();
