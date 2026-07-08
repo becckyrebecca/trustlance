@@ -1,145 +1,116 @@
-# NovaHealth Clinical Operations Platform
+# 🚀 TrustLance
+### Freelance with Confidence. Get Paid Securely.
 
-NovaHealth is a clinical operations platform designed to help healthcare facilities manage patients, staff workflows, encounters, and billing in a unified system.
+TrustLance is a Web3-powered freelancing platform built on the Stellar blockchain. It protects both freelancers and clients using blockchain-based escrow payments, milestone tracking, and transparent dispute resolution.
 
-The platform combines web, mobile, and backend services with a dedicated Stellar integration layer for financial and billing workflows, enabling a modern healthcare system that is structured, auditable, and scalable.
-
-NovaHealth is built as a monorepo to support fast iteration across clinical, administrative, and operational features.
-
----
-
-## 🌟 Overview
-Healthcare systems often operate across fragmented tools — patient records in one system, scheduling in another, billing handled separately, and mobile workflows poorly integrated.
-
-NovaHealth addresses this by providing a unified platform for:
-*   clinic and staff management,
-*   patient records and histories,
-*   clinical encounters and workflows,
-*   billing and payment processing,
-*   mobile-first access for healthcare workers,
-*   structured, auditable data across all operations.
-
-The system is designed to support both administrative and frontline clinical use cases.
+By leveraging Stellar's fast and low-cost network, TrustLance ensures that payments are secure, transparent, and instant, removing the need for traditional intermediaries and high platform fees.
 
 ---
 
-## 🏗 Platform Modules
+## 🌐 Project Features
 
-### Authentication & Access Control
-NovaHealth begins with a secure authentication and role system. It supports:
-*   staff login and identity verification,
-*   role-based access (`admin`, `clinician`, `support` staff),
-*   secure session management,
-*   scoped permissions per clinic or organization.
-
-This forms the foundation for all clinical and administrative actions.
-
-### Clinic & Staff Management
-The platform supports structured clinic organization management. Capabilities include:
-*   clinic onboarding,
-*   staff assignment and roles,
-*   multi-clinic support,
-*   access scoping per facility,
-*   administrative oversight tools.
-
-This ensures healthcare environments can be modeled accurately within the system.
-
-### Patient Records
-Patient data is central to NovaHealth. The system provides:
-*   patient profiles,
-*   medical history tracking,
-*   visit records,
-*   structured clinical data storage,
-*   longitudinal patient context,
-*   secure access controls.
-
-All patient data is designed to be consistent, traceable, and easy to extend.
-
-### Encounters & Clinical Workflows
-Encounters represent interactions between clinicians and patients. The system supports:
-*   visit creation and updates,
-*   diagnosis and notes,
-*   treatment workflows,
-*   structured encounter timelines,
-*   follow-up tracking,
-*   clinician collaboration.
-
-This creates a clear record of clinical activity over time.
-
-### Billing & Stellar Integration
-NovaHealth uses Stellar to support financial workflows within healthcare operations. The Stellar service enables:
-*   billing event processing,
-*   payment tracking,
-*   transaction receipts,
-*   audit-friendly financial records,
-*   integration between clinical actions and billing events.
-
-This provides a transparent and programmable layer for healthcare billing workflows.
-
-### Mobile & Offline Support
-The mobile workspace is designed for frontline healthcare environments. It supports:
-*   patient lookup and access,
-*   encounter documentation,
-*   offline-first workflows (future phase),
-*   sync when connectivity is restored,
-*   lightweight clinical data entry.
-
-This ensures clinicians can operate even in low-connectivity environments.
+*   **Trustless Escrow:** Payments are held in smart contracts and only released when milestones are met.
+*   **Instant Payouts:** Once approved, funds are transferred instantly via the Stellar network.
+*   **Zero Platform Fees:** We believe freelancers should keep what they earn.
+*   **Transparent Track Record:** All reviews and project histories are stored on the blockchain, ensuring a verified reputation system.
 
 ---
 
-## 🏗 System Architecture & Workspaces
+## 🛠️ Tech Stack
 
-NovaHealth is built as a strict monorepo with clear boundaries between services.
+### Frontend & UI
+*   **Framework:** Next.js 15 (App Router)
+*   **Styling:** Tailwind CSS
+*   **UI Components:** Radix UI & custom primitives
+*   **Icons:** Lucide React
+*   **Forms/Validation:** React Hook Form & Zod
 
-| Layer / Package | Location | Technology Stack |
-| :--- | :--- | :--- |
-| **API** | `apps/api` | Express + TypeScript |
-| **Web** | `apps/web` | Next.js (App Router) + React + TypeScript |
-| **Mobile** | `apps/mobile` | React + TypeScript (Clinical mobile workspace) |
-| **Stellar Service** | `apps/stellar-service` | Node.js + TypeScript + `@stellar/stellar-sdk` |
-| **Shared Config** | `packages/config` | Config parameters and billing rates (`@novahealth/config`) |
-| **Shared Types** | `packages/types` | Clinical domain TypeScript interfaces (`@novahealth/types`) |
+### Backend & Database
+*   **Database:** Neon Postgres (Serverless)
+*   **Client/ORM:** `@neondatabase/serverless`
 
----
-
-## 🚦 Architecture Validation & Boundaries
-
-The codebase enforces strict modular boundaries:
-*   **Architecture Check:** Validates structure directories and configurations.
-    ```bash
-    npm run check:architecture
-    ```
-*   **Boundary Check:** Validates that UI applications do not create illegal direct imports from backend logic.
-    ```bash
-    npm run check:boundaries
-    ```
+### Blockchain (Stellar)
+*   **Contracts:** Soroban Smart Contracts (Rust)
+*   **WASM Builder:** Cargo wasm32 targets
 
 ---
 
-## 💻 Getting Started
-
-### Prerequisites
-*   [Node.js](https://nodejs.org/) v20+
-*   [npm](https://www.npmjs.com/) v10+
-
-### Installation & Builds
-1.  Install dependencies:
-    ```bash
-    npm install
-    ```
-2.  Compile all packages and applications in the workspaces:
-    ```bash
-    npm run build
-    ```
-
-### Running Development Servers
-You can run the API, Web App, and Stellar Service in development mode simultaneously:
-```bash
-npm run dev
+## 📂 Folder Structure
+```
+trust_lance/
+├── app/                              # Next.js App Router pages and global styles
+├── components/                       # Reusable UI components
+├── contracts/
+│   └── trustlance-escrow-contract/   # Soroban milestone escrow contract (Rust)
+├── docs/                             # Contract deployment and configuration guides
+├── lib/                              # Shared database and utility configurations
+├── public/                           # Static assets (images, icons, etc.)
+├── scripts/                          # Database migrations (Postgres tables setup)
+├── styles/                           # Global CSS and theme configurations
+├── .env.example                      # Template for database environmental variables
+├── Cargo.toml                        # Rust workspace configuration
+├── package.json                      # Next.js workspace scripts and dependencies
+└── tsconfig.json                     # TypeScript compiler configuration
 ```
 
 ---
 
+## 🚀 Getting Started
+
+### Prerequisites
+*   [Node.js](https://nodejs.org/) v18+
+*   [Rust](https://www.rust-lang.org/) and cargo toolchain (target `wasm32-unknown-unknown` enabled)
+*   [Neon Database Account](https://neon.tech/)
+
+### Installation
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/becckyrebecca/novahealth.git TrustLance
+    cd TrustLance
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Set up environment variables:** Copy `.env.example` to `.env` and fill in your database credentials:
+    ```bash
+    cp .env.example .env
+    ```
+4.  **Initialize the database:** Execute the SQL script in `scripts/001-create-tables.sql` against your Neon database instance.
+5.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 🧪 Smart Contract Testing
+
+To verify contract execution:
+```bash
+cargo test
+```
+
+---
+
+## 🛣️ Roadmap
+*   [x] **Phase 1:** Core landing page and mockup escrow dashboard
+*   [x] **Phase 2:** Soroban milestone escrow smart contract development
+*   [ ] **Phase 3:** Live Freighter Wallet authentication & signing integration
+*   [ ] **Phase 4:** Dispute resolution UI & DAO governance
+*   [ ] **Phase 5:** Freelancer verified reputations on-chain
+
+---
+
+## 🤝 Contributing
+Contributions are always welcome:
+1.  Fork the repository.
+2.  Create a feature branch (`git checkout -b feature/name`).
+3.  Commit changes (`git commit -m 'add feature'`).
+4.  Push to branch (`git push origin feature/name`).
+5.  Open a Pull Request.
+
+---
+
 ## 📄 License
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

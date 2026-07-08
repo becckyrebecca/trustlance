@@ -1,4 +1,4 @@
-name: NovaHealth Monorepo CI
+name: TrustLance CI
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-    name: Verify Monorepo, Architecture & Contract Tests
+  build-and-test:
+    name: Verify Build & Rust Contract Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -24,13 +24,7 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Verify system architecture directories
-      run: npm run check:architecture
-
-    - name: Verify workspace dependency boundaries
-      run: npm run check:boundaries
-
-    - name: Build all packages and applications
+    - name: Build Next.js application
       run: npm run build
 
     - name: Set up Rust toolchain
@@ -48,11 +42,8 @@ jobs:
           target
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
-    - name: Pin cargo dependencies (ed25519-dalek precise version)
-      run: cargo update -p ed25519-dalek@3.0.0 --precise 2.2.0
-
     - name: Run contract cargo check
-      run: cargo check --manifest-path contracts/nova-pay-contract/Cargo.toml
+      run: cargo check --manifest-path contracts/trustlance-escrow-contract/Cargo.toml
 
     - name: Run contract unit tests
       run: cargo test

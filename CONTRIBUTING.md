@@ -1,48 +1,41 @@
-# Contributing to NovaHealth
+# Contributing to TrustLance
 
-Thank you for your interest in contributing to NovaHealth! This clinical operations and billing platform is built as a strict monorepo. Please read this guide to understand how to get started and how to maintain the codebase standards.
-
----
-
-## 🛠 Prerequisites
-
-*   **Node.js:** v20 or newer
-*   **npm:** v10 or newer
+We welcome open-source contributions from the developer community! Follow this guide to ensure your contributions meet project standards and pass verification pipelines.
 
 ---
 
-## 🚀 Setting Up the Development Workspace
+## 🛠️ Development Setup
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/becckyrebecca/stellar-milestone-escrow.git NovaHealth
-    cd NovaHealth
+    git clone https://github.com/becckyrebecca/novahealth.git
+    cd novahealth
     ```
-2.  **Install dependencies:**
+2.  **Install Node.js dependencies:**
     ```bash
     npm install
     ```
-3.  **Compile shared packages and apps:**
+3.  **Compile Next.js build:**
     ```bash
     npm run build
+    ```
+4.  **Run Soroban unit tests:**
+    ```bash
+    cargo test
     ```
 
 ---
 
-## 🚦 Architecture & Boundary Rules
+## 🚦 Architectural Enforcement & Guidelines
 
-To keep our patient data safe and clinical operations decoupled from financial ledger layers:
-1.  **Shared config and types only:** Use `@novahealth/config` and `@novahealth/types` to share values across client-side and server-side applications.
-2.  **No direct backend dependencies:** UI projects (`apps/web` or `apps/mobile`) must **never** import source files from backend services (`apps/api` or `apps/stellar-service`).
-3.  **Pre-commit Verification:** Before submitting a Pull Request, you must run the validation checks and ensure they pass successfully:
-    ```bash
-    npm run check:architecture
-    npm run check:boundaries
-    ```
+To ensure the platform is robust, secure, and ready for Stellar open-source submissions:
+*   **Contract Integrity:** Do not change smart contract layouts or interfaces without adding accompanying unit tests.
+*   **Types & Validations:** Always validate user inputs via React Hook Form and Zod schemas before initiating any transaction or database query.
+*   **Clean PR History:** Keep commits grouped cleanly and provide clear descriptions of changes.
 
 ---
 
 ## 📝 Committing Code
 
-*   Always use descriptive branch names (`feature/onboard-patient`, `bugfix/stellar-tx-timeout`).
-*   Ensure that compilation (`npm run build`) is successful and does not generate type errors or warnings.
+*   Always work in a scoped feature branch (`feature/wallet-auth`, `bugfix/contract-release`).
+*   Ensure that all linting passes locally (`npm run lint`) and that both Next.js compiling and Cargo tests succeed before submitting a Pull Request.

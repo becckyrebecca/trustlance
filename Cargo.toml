@@ -1,7 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
-    "contracts/nova-pay-contract",
+    "contracts/trustlance-escrow-contract",
 ]
 
 [profile.release]
